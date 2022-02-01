@@ -1,0 +1,152 @@
+.inputForm {
+  width: 70%;
+  text-align: center;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.inputForm input {
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: gray;
+}
+
+/* .inputForm  input:focus {
+  } */
+
+.inputForm button {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: 50%;
+  transform: translate(-20%, -50%);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid transparent;
+  padding: 0;
+  background-color: #3ad59f;
+  color: currentColor;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.inputForm button:hover {
+  color: #3ad59f;
+  background-color: whitesmoke;
+  border-color: #3ad59f;
+}
+
+.inputForm button > * {
+  font-size: 2rem;
+}
+
+.todolist__container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2%;
+  width: 100%;
+}
+
+.todolist__container > * {
+  flex: 0 0 48%;
+}
+
+.todolist__container > *:only-child {
+  flex: 0 0 100%;
+}
+
+.todoitem__container {
+  margin: 0.5rem;
+  border: 1px solid green;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.todoitem__content {
+  width: 70%;
+  text-align: left;
+}
+
+.todoitem__content * {
+  overflow-wrap: break-word;
+}
+
+.todoitem__content form,
+.todoitem__content input {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.todoitem__container:hover {
+  box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.todoitem__container form input {
+  background-color: inherit;
+  color: indigo;
+  font-size: inherit;
+  font-family: "Neucha";
+  outline: none;
+  border: none;
+  overflow-wrap: break-word;
+}
+
+.notcompleted {
+  background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+  color: #4b6cb7;
+  cursor: pointer;
+}
+
+.completed {
+  background: linear-gradient(90deg, #fdbb2d 0%, #22c1c3 100%);
+  color: #182848;
+}
+
+.icon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.3rem;
+}
+
+.icon:hover {
+  transform: scale(1.3);
+  color: whitesmoke;
+}
+
+@media only screen and (max-width: 800px) {
+  .todolist__container {
+    flex-direction: column;
+  }
+
+  .inputForm {
+    width: 95%;
+  }
+
+  .edit,
+  .save {
+    display: none;
+  }
+
+  .icon {
+    margin-left: 0.8rem;
+  }
+}
