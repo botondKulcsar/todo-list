@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
 
-html, *, *::after, *::before {
+html,
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -8,15 +11,13 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
-    font-family: 'Neucha';
+
+  font-family: "Neucha";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

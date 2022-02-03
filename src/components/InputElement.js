@@ -1,10 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { MdOutlineAddTask } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../features/todoSlice'
 
-const InputElement = ({ addTodo }) => {
+const InputElement = () => {
   const [todoText, setTodoText] = useState('')
-
   const inputRef = useRef()
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (inputRef.current) {
@@ -19,15 +22,16 @@ const InputElement = ({ addTodo }) => {
   const submitHandler = e => {
     e.preventDefault()
     if (todoText.length < 3) {
-      alert('Todo content is way too short!')
       return
     }
-    addTodo({
-      type: 'add',
-      payload: {
-        text: todoText
-      }
-    })
+    dispatch(
+      addTodo({
+        id: Date.now(),
+        text: todoText,
+        complete: false
+      })
+    )
+
     setTodoText('')
   }
 

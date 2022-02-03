@@ -5,13 +5,15 @@ import {
   MdOutlineDone,
   MdOutlineDelete
 } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { deleteTodo, editTodo } from '../features/todoSlice'
 
-const TodoItem = ({ todo, onDelete, onEdit }) => {
+const TodoItem = ({ todo }) => {
   const [edit, setEdit] = useState(false)
-
   const [todoContent, setTodoContent] = useState(todo.text)
+  const inputRef = useRef()
 
-  const inputRef = useRef(null)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (inputRef.current) {
@@ -20,12 +22,7 @@ const TodoItem = ({ todo, onDelete, onEdit }) => {
   }, [edit])
 
   const deleteHandler = () => {
-    onDelete({
-      type: 'delete',
-      payload: {
-        id: todo.id
-      }
-    })
+    dispatch(deleteTodo(todo.id))
   }
 
   const editHandler = (e = null) => {
@@ -37,25 +34,24 @@ const TodoItem = ({ todo, onDelete, onEdit }) => {
     } else {
       e.preventDefault()
 
-      onEdit({
-        type: 'edit',
-        payload: {
+      dispatch(
+        editTodo({
           id: todo.id,
           text: todoContent
-        }
-      })
+        })
+      )
+
       setEdit(false)
     }
   }
 
   const changeCompletedHandler = () => {
-    onEdit({
-      type: 'edit',
-      payload: {
+    dispatch(
+      editTodo({
         id: todo.id,
         completed: !todo.completed
-      }
-    })
+      })
+    )
   }
 
   return (
@@ -67,7 +63,7 @@ const TodoItem = ({ todo, onDelete, onEdit }) => {
       <div
         onClick={editHandler}
         className='todoitem__content'
-        title={!todo.completed && 'click to edit'}
+        title={!todo.completed ? 'click to edit' : ''}
       >
         {edit ? (
           <form onSubmit={editHandler} style={{ display: 'inline' }}>
