@@ -67,7 +67,7 @@ const TodoItem = ({ todo, onDelete, onEdit }) => {
       <div
         onClick={editHandler}
         className='todoitem__content'
-        title={!todo.completed && 'click to edit'}
+        title={!todo.completed ? 'click to edit' : ''}
       >
         {edit ? (
           <form onSubmit={editHandler} style={{ display: 'inline' }}>
