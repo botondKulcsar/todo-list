@@ -1,10 +1,8 @@
 # Todo Playground
 
-Deployed to netlify: [Todo Playground](https://todolist-kecs.netlify.app/).
+[Original](https://github.com/botondKulcsar/todo-list/tree/main) version
 
-## React Hooks used
+## State management used
 
-- useReducer
-- useState
-- useRef
-- useEffect
+- Redux Toolkit
+
